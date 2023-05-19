@@ -77,7 +77,7 @@ apps=$( jq '.. | .class? //empty' "$json" | sed 's/\\//g;s/\^//g;s/\$//g;s/\"//g
 # Append the command to open the application to the end of the script
 for app in ${apps[@]}
 do
-				echo '('"$app"'>/dev/null &)' >> $shell
+				echo '('"$app"'>/dev/null 2>&1 &)' >> $shell
 done
 
 # echo "恢复脚本已生成到 $shell"' 中，请前往查看'
